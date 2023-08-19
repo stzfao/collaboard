@@ -1,0 +1,154 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+/* Landing Page */
+
+.Landing {
+  height: 100vh;
+  padding-top: 2em;
+  padding-left: 2em;
+  padding-bottom: 2em;
+  font-size: calc(10px + 2vmin);
+}
+
+.Landing-text {
+  font-size: 3vw;
+  /* margin: 2em; */
+  text-align: left;
+  color: rgb(77, 77, 78);
+}
+
+.design-text {
+  font-family: fantasy;
+  font-weight: bold;
+  color: #5649e7;
+}
+
+.build-text {
+  font-family: 'Montserrat';
+  color: rgb(49, 49, 49);
+}
+
+.brainstorm-text {
+  font-family: monospace;
+  font-weight: bold;
+  color: rgb(255, 150, 168);
+}
+
+.customer-image {
+  float: right;
+  margin-top: 2em;
+  border-radius: 20px 2px 2px 20px;
+  filter: drop-shadow(0px 0px 7px rgba(155, 155, 155, 0.548));
+  aspect-ratio: 16 / 9 ;
+  width: 100%;
+}
+
+/*Header*/
+
+.Header {
+  display: flex;
+  background-color: white;
+  background-blend-mode: lighten;
+}
+
+/*About*/
+.About {
+  height: 100vh;
+  align-content: center;
+  padding: 3em;
+  font-size: 3vw;
+  color: paleturquoise;
+  /* font-size: calc(10px + 2vmin); */
+}
+
+.About-text {
+  font-size: 3vh;
+  /* margin: 2em; */
+  text-align: left;
+  color: rgb(77, 77, 78);
+}
+
+/*Whiteboard*/
+
+.outline-slider {
+  /* outline: 2px dashed rgb(213, 230, 241); */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.outline-check {
+  /* outline: 2px dashed rgb(213, 230, 241); */
+  display: flex;
+  justify-content: space-evenly;
+  padding: 5px;
+}
+
+.Whiteboard {
+  height: 70vh;
+  width: 100%;
+  margin: 1vw;
+  padding: 1em;
+  border: #5649e7;
+  border-radius: 10px;
+  outline: 2px dashed rgb(213, 230, 241);
+  box-shadow: 0px 0px 15px #e7e6e6;
+  overflow: hidden;
+  /* box-shadow: -5px -5px 15px #e7e6e6; */
+}
+
+.Form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Whiteboard-controls {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  border: #5649e7;
+  border-radius: 20px;
+  /* outline: 1px solid orange; */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* 
+.btn-primary {
+  background-color: rgb(112, 112, 212);
+  outline: #F98BDA;
+} */
+
+.JoinRoom {
+  text-align: center;
+  margin: 3vh;
+  color: rgb(77, 77, 78);
+}
+
+.CreateRoom {
+  text-align: center;
+  margin: 3vh;
+  color: rgb(77, 77, 78);
+}
