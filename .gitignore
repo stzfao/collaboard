@@ -1,5 +1,9 @@
 /React App_files
-/server/dist
-/server/.vscode
-/server/node_modules
-/client/.vscode
+.vscode/
+
+# server
+server/dist/
+server/node_modules/
+
+# client
+client/node_modules/
