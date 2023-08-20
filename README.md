@@ -1,2 +1,4 @@
 # collaboard
-A collaborative whiteboard for multiple chatrooms to join in and use. 
+A collaborative whiteboard for multiple users to create and join rooms to use. 
+
+
