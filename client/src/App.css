@@ -2,9 +2,12 @@ html {
   scroll-behavior: smooth;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*Not Found aaaa*/
+
+.NotFound {
+  color: #00a2ed;
+  padding: 12vh;
+  margin: 10vh;
 }
 
 /* Landing Page */
@@ -46,7 +49,7 @@ html {
   margin-top: 2em;
   border-radius: 20px 2px 2px 20px;
   filter: drop-shadow(0px 0px 7px rgba(155, 155, 155, 0.548));
-  aspect-ratio: 16 / 9 ;
+  aspect-ratio: 16 / 9;
   width: 100%;
 }
 
@@ -59,8 +62,9 @@ html {
 }
 
 /*About*/
+
 .About {
-  height: 100vh;
+  height: 80vh;
   align-content: center;
   padding: 3em;
   font-size: 3vw;
@@ -75,7 +79,7 @@ html {
   color: rgb(77, 77, 78);
 }
 
-/*Whiteboard*/
+/*Whiteboard Room*/
 
 .outline-slider {
   /* outline: 2px dashed rgb(213, 230, 241); */
@@ -120,26 +124,13 @@ html {
   /* outline: 1px solid orange; */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Room {
+  padding-top: 3vh;
+  padding-left: 2vh;
+  padding-right: 6vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-/* 
-.btn-primary {
-  background-color: rgb(112, 112, 212);
-  outline: #F98BDA;
-} */
+/*Room Generation*/
 
 .JoinRoom {
   text-align: center;
@@ -151,4 +142,8 @@ html {
   text-align: center;
   margin: 3vh;
   color: rgb(77, 77, 78);
+  padding-bottom: 2em;
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
 }

@@ -1,12 +1,9 @@
-import SocketData from './socketData.model'
+import {SocketData, SocketSequence, Tool} from '../models';
 
 interface ServerToClientEvents {
-    noArg: () => void;
-    basicEmit: (a: number, b: string, c: Buffer) => void;
-    withAck: (d: string, callback: (e: number) => void) => void;
-    userIsJoined: (success: boolean) => void;
-    userJoined: (data: SocketData) => void;
-
+    eraseCanvas: () => void;
+    syncTool: (data: Tool) => void;
+    joinCheck: (b: boolean) => void;
 }
 
 export default ServerToClientEvents

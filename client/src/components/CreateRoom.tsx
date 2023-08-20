@@ -23,17 +23,15 @@ const CreateRoom: React.FunctionComponent<ICreateRoomProps> = ({ uuidGen, socket
     const handleCreateRoom = (e: any) => {
         e.preventDefault();
 
-        // {name, roomId, userId, hsot, presenter}
         const roomData = {
             username,
             roomId,
             userId: uuidGen() + '__' + 'user',
-            host: true,
-            presenter: true
+            member: true,
         }
         setUser(roomData);
         navigate(`/room/${roomId}`);
-        socket.emit('userJoined', roomData);
+        socket.emit('createRoom', roomData);
         console.log(roomData);
     }
 

@@ -1,9 +1,10 @@
-import SocketData from "./socketData.model.js";
+import {SocketData, SocketSequence, Tool} from '../models';
 
 interface ClientToServerEvents {
-    hello: () => void;
-    userJoined: (data: SocketData) => void;
-    userIsJoined: (success: boolean) => void;
+    eraseCanvas: () => void;
+    syncTool: (data: Tool) => void;
+    createRoom: (data: SocketData) => void;
+    joinRoom: (data: SocketData, callback: (b: boolean) => void) => void;
 }
 
 export default ClientToServerEvents

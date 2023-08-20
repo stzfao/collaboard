@@ -36,7 +36,7 @@ const Header: React.FunctionComponent<IHeaderProps> = (props) => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/generate_room">Get Started</Nav.Link>
+            <Nav.Link href="/room">Get Started</Nav.Link>
             <Nav.Link href="/#about">About</Nav.Link>
           </Nav>
         </Navbar.Collapse>

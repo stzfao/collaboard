@@ -7,55 +7,54 @@ import { Landing, Room, RoomGeneration, About } from './views'
 import { Container, Row, Col } from 'react-bootstrap';
 import { Route, Routes } from 'react-router-dom';
 import SocketIO, { Socket, io } from 'socket.io-client';
-import { ClientToServerEvents, ServerToClientEvents, SocketData } from '../../models'
+import { ClientToServerEvents, ServerToClientEvents, SocketData, Tool, SocketSequence } from '../../models'
 
 const webServer = "http://localhost:5000"
 
 function App() {
-
-  const socket0: Socket<ServerToClientEvents, ClientToServerEvents> = SocketIO();
   const [user, setUser] = React.useState<SocketData>();
+  const [elements, setElements] = React.useState<Tool[]>([]);
+  const canvasRef = React.useRef<any>(null);
+  const ctxRef = React.useRef<any>(null);
   const connectionOptions = {
     forceNew: true,
     reconnectionAttempts: 1000,
     timeout: 1000,
+    upgrade: false,
     transports: ['websocket'],
   }
+  // responds back to the server!
   const socket: Socket<ServerToClientEvents, ClientToServerEvents> = io(webServer, connectionOptions);
 
   React.useEffect(() => {
-    console.log("hello!!");
-    socket.on('userIsJoined', (success: boolean) => {
-      if(success) console.log('joined!! :D');
-      else console.log('joining error :((');
+    console.log('how many times am i here');
+    socket.once('connect', () => {
+      console.log('connected to server on: ', socket.id);
     })
+
+    socket.on('eraseCanvas', () => {
+      const canvas = canvasRef.current;
+      const ctx = ctxRef.current;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      setElements([]);
+    })
+
+    socket.on('disconnect', () => {
+      console.log('disconnected from server on: ', socket.id);
+    })
+    // return () => {
+    //   socket.disconnect();
+    // }
   }, []);
 
-
-
-  const uuidGen: () => string = (): string => {
-    // source: https://www.w3resource.com/javascript-exercises/javascript-math-exercise-23.php
-    let dt = new Date().getTime();
-    let uuid = 'xxx-xxx-xxx'.replace(/[xy]/g, function (c) {
-      var r = (dt + Math.random() * 16) % 16 | 0;
-      dt = Math.floor(dt / 16);
-      return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
-    });
-    return uuid;
-  }
 
   return (
     <div>
       <Header />
       <Routes>
         <Route path="/" Component={Landing} />
-        {/* <Route path="/generate_room" Component={RoomGeneration} uuidGen={uuidGen}/> */}
-        <Route path="/generate_room" element={<RoomGeneration
-          uuidGen={uuidGen}
-          socket={socket}
-          setUser={setUser}
-        />} />
-        <Route path="/room/:roomId" Component={Room} />
+        <Route path="/room" element={<RoomGeneration socket={socket} setUser={setUser} />} />
+        <Route path="/room/:roomId" element={<Room elements={elements} setElements={setElements} user={user!} socket={socket} />} />
         <Route path="#about" Component={About} />
       </Routes>
     </div>
